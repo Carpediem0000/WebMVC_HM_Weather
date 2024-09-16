@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <div class="row">
+        <div class="col-1">
+            <p>Select city</p>
+        </div>
+        <div class="col-2">
+            <!-- Форма для отправки выбранного города -->
+            <form method="get" action="/">
+                <select name="city">
+                    <option value="Kiev" selected>Kiev</option>
+                    <option value="Kharkiv">Kharkiv</option>
+                    <option value="Lviv">Lviv</option>
+                    <option value="Odesa">Odesa</option>
+                    <option value="Dnipro">Dnipro</option>
+                    <option value="Zaporizhzhia">Zaporizhzhia</option>
+                    <option value="Mykolaiv">Mykolaiv</option>
+                    <option value="Vinnytsia">Vinnytsia</option>
+                    <option value="Rivne">Rivne</option>
+                    <option value="Cherkasy">Cherkasy</option>
+                    <option value="Chernivtsi">Chernivtsi</option>
+                    <option value="Ivano-Frankivsk">Ivano-Frankivsk</option>
+                    <option value="Ternopil">Ternopil</option>
+                    <option value="Uzhhorod">Uzhhorod</option>
+                    <option value="Kropyvnytskyi">Kropyvnytskyi</option>
+                    <option value="Chernihiv">Chernihiv</option>
+                    <option value="Khmelnytskyi">Khmelnytskyi</option>
+                    <option value="Zhytomyr">Zhytomyr</option>
+                    <option value="Kherson">Kherson</option>
+                </select>
+                <input type="submit" value="Get Forecast" />
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger">
+                <p>@ViewBag.Error</p>
+            </div>
+        }
+        @if (ViewBag.Temperature != null)
+        {
+            <div>
+                <h3>@ViewBag.CityName</h3>
+                <p>Температура: @ViewBag.Temperature °C</p>
+                <p>Описание: @ViewBag.Description</p>
+                <p>Влажность: @ViewBag.Humidity%</p>
+                <p>Скорость ветра: @ViewBag.WindSpeed м/с</p>
+            </div>
+        }
+    </div>
+</main>
